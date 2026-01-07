@@ -1,0 +1,42 @@
+START
+
+DECLARE jumlahPemilih AS INTEGER
+DECLARE pilihan AS INTEGER
+
+DECLARE kandidat[3] AS STRING
+DECLARE suara[3] AS INTEGER
+
+SET kandidat[0] = "adit"
+SET kandidat[1] = "akhan"
+SET kandidat[2] = "paro"
+
+SET suara[0] = 0
+SET suara[1] = 0
+SET suara[2] = 0
+
+DISPLAY "SISTEM VOTING SEDERHANA"
+DISPLAY "Masukkan jumlah pemilih"
+INPUT jumlahPemilih
+
+FOR i ← 1 TO jumlahPemilih DO
+    DISPLAY "Pemilihan ke-", i
+    DISPLAY "1. ", kandidat[0]
+    DISPLAY "2. ", kandidat[1]
+    DISPLAY "3. ", kandidat[2]
+    DISPLAY "Pilih kandidat (1 - 3)"
+    INPUT pilihan
+
+    IF pilihan >= 1 AND pilihan <= 3 THEN
+        suara[pilihan - 1] ← suara[pilihan - 1] + 1
+    ELSE
+        DISPLAY "Input salah, silakan diulang"
+    ENDIF
+END FOR
+
+DISPLAY "HASIL VOTING"
+
+FOR i ← 0 TO 2 DO
+    DISPLAY kandidat[i], " : ", suara[i], " suara"
+END FOR
+
+END
